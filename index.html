@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Il nostro matrimonio – 26 settembre 2026</title>
+  <title>Bruno & Christina – 26 settembre 2026</title>
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Animate on scroll -->
+  <!-- Animate on Scroll -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
     :root {
-      --green-main: #9caf9c; /* verde salvia */
+      --green-main: #9caf9c;
       --green-light: #e6efe6;
       --beige: #f5f1ec;
       --text-dark: #3a3a3a;
@@ -26,11 +26,37 @@
       font-family: 'Montserrat', sans-serif;
       background-color: var(--beige);
       color: var(--text-dark);
-      scroll-behavior: smooth;
     }
 
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--green-main);
+    }
+
+    /* HERO */
     header {
-      background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e');
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -39,6 +65,7 @@
       justify-content: center;
       text-align: center;
       color: white;
+      padding-top: 60px;
     }
 
     header h1 {
@@ -53,12 +80,17 @@
     }
 
     section {
-      padding: 80px 20px;
+      padding: 90px 20px;
       max-width: 900px;
       margin: auto;
+      display: none;
     }
 
-    section h2 {
+    section.active {
+      display: block;
+    }
+
+    h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
       text-align: center;
@@ -66,39 +98,27 @@
       color: var(--green-main);
     }
 
-    .story {
+    .box {
       background: white;
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
-    .story img {
+    .box img {
       width: 100%;
       border-radius: 14px;
       margin-top: 20px;
     }
 
-    .info-box {
+    .info {
       background: var(--green-light);
       padding: 30px;
       border-radius: 16px;
       text-align: center;
     }
 
-    .info-box p {
-      margin: 8px 0;
-      font-size: 1.05rem;
-    }
-
-    form {
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    input, button {
+    form input, form button {
       width: 100%;
       padding: 14px;
       margin-top: 12px;
@@ -107,16 +127,19 @@
       font-size: 1rem;
     }
 
-    button {
+    form button {
       background-color: var(--green-main);
       color: white;
       border: none;
       cursor: pointer;
-      font-weight: 500;
     }
 
-    button:hover {
-      background-color: #879b87;
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 14px;
+      margin-top: 20px;
     }
 
     footer {
@@ -129,54 +152,73 @@
 </head>
 <body>
 
+<nav>
+  <ul>
+    <li onclick="showPage('home')">Informazioni</li>
+    <li onclick="showPage('rsvp')">Conferma presenza</li>
+  </ul>
+</nav>
+
 <header>
   <div data-aos="fade-up">
-    <h1>Ci sposiamo</h1>
+    <h1>Bruno & Christina</h1>
     <p>26 • 09 • 2026</p>
   </div>
 </header>
 
-<section data-aos="fade-up">
+<section id="home" class="active" data-aos="fade-up">
   <h2>La nostra storia</h2>
-  <div class="story">
+  <div class="box">
     <p>
-      Qui potrai raccontare la vostra storia: come vi siete conosciuti,
-      il vostro percorso insieme e perché avete scelto di dirvi sì.
+      Due strade che si sono incontrate e hanno deciso di camminare insieme.
+      Con gioia vi invitiamo a celebrare il nostro matrimonio.
     </p>
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Foto della coppia">
   </div>
-</section>
 
-<section data-aos="fade-up">
-  <h2>Il matrimonio</h2>
-  <div class="info-box">
+  <h2 style="margin-top:60px">Il matrimonio</h2>
+  <div class="info">
     <p><strong>📍 Location:</strong> La Femme</p>
     <p>Via Cesare Battisti 58, San Bartolomeo al Mare</p>
-    <p><strong>🕓 Orario:</strong> dalle 16:00 fino a tarda serata</p>
-    <p>Cerimonia e cena inclusa</p>
+    <p><strong>🕓 Orario:</strong> dalle 16:00 – cena inclusa</p>
   </div>
+
+  <iframe
+    src="https://www.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&output=embed"
+    loading="lazy">
+  </iframe>
 </section>
 
-<section data-aos="fade-up">
-  <h2>Conferma presenza</h2>
-  <form>
-    <input type="text" placeholder="Nome" required>
-    <input type="text" placeholder="Cognome" required>
-    <input type="number" placeholder="Numero di persone" min="1" required>
-    <button type="submit">Conferma</button>
-  </form>
+<section id="rsvp" data-aos="fade-up">
+  <h2>Conferma la tua presenza</h2>
+  <div class="box">
+    <!-- Formspree: invia notifica a bejleri.bruno@gmail.com -->
+    <form action="https://formspree.io/f/xbjvjqkd" method="POST">
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="text" name="cognome" placeholder="Cognome" required>
+      <input type="number" name="persone" placeholder="Numero di persone" min="1" required>
+      <input type="email" name="email" placeholder="Email (facoltativa)">
+      <button type="submit">Invia conferma</button>
+    </form>
+    <p style="margin-top:15px;font-size:0.9rem">
+      Riceveremo la conferma all'indirizzo <strong>bejleri.bruno@gmail.com</strong>
+    </p>
+  </div>
 </section>
 
 <footer>
-  Con amore • 26 settembre 2026
+  Con amore • Bruno & Christina • 26 settembre 2026
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: true });
+
+  function showPage(page) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+    window.scrollTo(0, 0);
+  }
 </script>
 
 </body>
 </html>
-
-aggiunto sito matrimonio
