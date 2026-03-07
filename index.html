@@ -3,239 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bruno & Christina – 26 settembre 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Bruno & Christina - 26 Settembre 2026</title>
 
 <style>
-:root{
---green-main:#9caf9c;
---green-light:#e6efe6;
---beige:#f5f1ec;
---text-dark:#3a3a3a;
-}
-
-*{box-sizing:border-box}
 
 body{
+font-family: 'Georgia', serif;
 margin:0;
-font-family:'Montserrat',sans-serif;
-background:var(--beige);
-color:var(--text-dark);
+background:#f6f8f4;
+color:#2f3e34;
 overflow-x:hidden;
 }
 
-/* DECORAZIONE ULIVO NEGLI ANGOLI */
-body::before,
-body::after{
+/* Olive background */
+body::before{
 content:"";
 position:fixed;
-width:280px;
-height:280px;
-background-image:url("https://www.transparenttextures.com/patterns/leaf.png");
-opacity:0.08;
-pointer-events:none;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('https://www.transparenttextures.com/patterns/leaves.png');
+opacity:0.85;
+z-index:-2;
+}
+
+/* Olive corner decorations */
+.corner{
+position:fixed;
+width:160px;
+opacity:0.85;
 z-index:-1;
 }
 
-body::before{
-top:-60px;
-left:-60px;
-transform:rotate(20deg);
-}
+.corner.top-left{top:0;left:0;transform:rotate(0deg)}
+.corner.top-right{top:0;right:0;transform:scaleX(-1)}
+.corner.bottom-left{bottom:0;left:0;transform:scaleY(-1)}
+.corner.bottom-right{bottom:0;right:0;transform:rotate(180deg)}
 
-body::after{
-bottom:-60px;
-right:-60px;
-transform:rotate(-20deg);
-}
-
-/* NAVBAR */
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,0.95);
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
-z-index:1000;
-}
-
-.nav-container{
-max-width:1100px;
-margin:auto;
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:14px 20px;
+padding:20px 40px;
+background:#dfe8dc;
 }
 
-.logo{
-font-family:'Playfair Display',serif;
-color:var(--green-main);
-font-size:20px;
+.title{
+font-size:24px;
+font-weight:bold;
 }
 
-.menu{position:relative}
+.menu{
+position:relative;
+}
 
-.menu-button{
+.menu button{
+background:#7c9a85;
+border:none;
+color:white;
+padding:10px 18px;
+border-radius:20px;
 cursor:pointer;
-font-weight:500;
-color:var(--green-main);
-transition:0.3s;
+font-size:16px;
 }
-
-.menu-button:hover{opacity:0.7}
 
 .dropdown{
 display:none;
 position:absolute;
 right:0;
-top:28px;
 background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 border-radius:10px;
-box-shadow:0 8px 25px rgba(0,0,0,0.1);
 overflow:hidden;
-animation:menuFade 0.3s ease;
+animation:fadeMenu .3s ease;
 }
 
-@keyframes menuFade{
+.dropdown a{
+display:block;
+padding:12px 20px;
+text-decoration:none;
+color:#2f3e34;
+}
+
+.dropdown a:hover{
+background:#f1f4ef;
+}
+
+@keyframes fadeMenu{
 from{opacity:0; transform:translateY(-5px)}
 to{opacity:1; transform:translateY(0)}
 }
 
-.dropdown div{
-padding:12px 18px;
-cursor:pointer;
-white-space:nowrap;
-}
-
-.dropdown div:hover{
-background:var(--green-light);
-}
-
-/* PAGINE */
-.page{
-padding:110px 20px 80px 20px;
+.container{
 max-width:1100px;
 margin:auto;
+padding:40px 20px;
+}
+
+.page{
 display:none;
-opacity:0;
-transform:translateY(25px);
-transition:opacity 0.6s ease, transform 0.6s ease;
+animation:fadePage .6s ease;
 }
 
 .page.active{
-display:block;
-animation:fadePage 0.6s ease forwards;
+display:flex;
 }
 
 @keyframes fadePage{
-0%{opacity:0; transform:translateY(25px);} 
-100%{opacity:1; transform:translateY(0);} 
+from{opacity:0; transform:translateY(15px)}
+to{opacity:1; transform:translateY(0)}
 }
 
-h1{
-font-family:'Playfair Display',serif;
-font-size:40px;
-color:var(--green-main);
-margin-bottom:20px;
-}
-
-h2{
-font-family:'Playfair Display',serif;
-color:var(--green-main);
-text-align:center;
-margin-bottom:30px;
-}
-
-/* BENVENUTI */
-.welcome-container{
+.welcome{
 display:flex;
 flex-wrap:wrap;
-gap:40px;
 align-items:center;
+gap:40px;
 }
 
-.welcome-text{
+.text{
 flex:1;
-min-width:260px;
 font-size:18px;
 line-height:1.7;
 }
 
-.welcome-photo{
+.photo{
 flex:1;
-min-width:260px;
-text-align:center;
-animation:photoFade 1.2s ease;
 }
 
-@keyframes photoFade{
-from{opacity:0; transform:scale(0.95)}
-to{opacity:1; transform:scale(1)}
+.photo img{
+width:100%;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+transition:transform .4s ease;
 }
 
-.welcome-photo img{
-max-height:520px;
-width:auto;
-border-radius:16px;
-box-shadow:0 12px 35px rgba(0,0,0,0.15);
-transition:0.4s;
-}
-
-.welcome-photo img:hover{
+.photo img:hover{
 transform:scale(1.03);
 }
 
-.box{
-background:white;
-padding:40px;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.countdown{
+margin-top:20px;
+font-weight:bold;
+font-size:20px;
+color:#6f8f79;
 }
 
-form input, form button, .info-input{
-width:100%;
-padding:14px;
-margin-top:12px;
-border-radius:8px;
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:500px;
+}
+
+input,textarea{
+padding:12px;
+border-radius:10px;
 border:1px solid #ccc;
-font-size:1rem;
+font-size:15px;
 }
 
-form button{
-background:var(--green-main);
+button.submit{
+background:#7c9a85;
 color:white;
 border:none;
+padding:12px;
+border-radius:20px;
+font-size:16px;
 cursor:pointer;
-transition:0.3s;
-}
-
-form button:hover{
-opacity:0.85;
 }
 
 iframe{
 width:100%;
-height:350px;
+height:400px;
 border:0;
-border-radius:14px;
-margin-top:20px;
-}
-
-/* COUNTDOWN */
-.countdown{
-margin-top:25px;
-font-size:18px;
-color:var(--green-main);
-font-weight:500;
-}
-
-footer{
-text-align:center;
-padding:30px;
-font-size:0.9rem;
-color:#666;
+border-radius:10px;
 }
 
 </style>
@@ -243,164 +186,123 @@ color:#666;
 
 <body>
 
-<nav>
-<div class="nav-container">
-<div class="logo">Bruno & Christina</div>
+<img class="corner top-left" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
+<img class="corner top-right" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
+<img class="corner bottom-left" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
+<img class="corner bottom-right" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
 
+<header>
+<div class="title">Bruno & Christina</div>
 <div class="menu">
-<div class="menu-button" onclick="toggleMenu()">Menu ▾</div>
-<div class="dropdown" id="dropdownMenu">
-<div onclick="showPage('benvenuti')">Benvenuti!</div>
-<div onclick="showPage('indirizzo')">Indirizzo</div>
-<div onclick="showPage('rsvp')">Conferma la tua presenza</div>
-<div onclick="showPage('info')">Info</div>
+<button onclick="toggleMenu()">Menu</button>
+<div class="dropdown" id="dropdown">
+<a href="#" onclick="showPage('home')">Benvenuti</a>
+<a href="#" onclick="showPage('indirizzo')">Indirizzo</a>
+<a href="#" onclick="showPage('rsvp')">Conferma la tua presenza</a>
 </div>
 </div>
-</div>
-</nav>
+</header>
 
-<section id="benvenuti" class="page active">
+<div class="container">
 
-<h1>Benvenuti!</h1>
+<!-- HOME -->
+<div id="home" class="page active welcome">
 
-<div class="welcome-container">
+<div class="text">
+<h2>Benvenuti!</h2>
 
-<div class="welcome-text">
-<p>Ci siamo incontrati quasi per caso, ma abbiamo capito subito che tra noi c'era qualcosa di speciale.</p>
+<p>
+Con immensa gioia vi invitiamo a celebrare con noi il giorno più importante della nostra vita.
 
-<p>Tra viaggi, sogni e tanti momenti condivisi, abbiamo costruito una storia fatta di complicità, rispetto e amore.</p>
+Il <b>26 settembre 2026</b> alle ore <b>16:00</b> ci uniremo in matrimonio circondati dalle persone che amiamo.
 
-<p>Il 26 settembre 2026 diremo il nostro "sì" e non potremmo essere più felici di festeggiare questo momento insieme alle persone che amiamo.</p>
+Sarà una giornata fatta di emozioni, sorrisi, buon cibo e momenti indimenticabili.
 
-<p>Grazie per essere parte della nostra vita e di questo giorno così importante.</p>
+Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra storia.
+</p>
 
 <div class="countdown" id="countdown"></div>
 
 </div>
 
-<div class="welcome-photo">
-<img src="foto-proposta.jpg" alt="Bruno e Christina">
+<div class="photo">
+<img src="foto.jpg" alt="Bruno e Christina">
 </div>
 
 </div>
 
-</section>
+<!-- LOCATION -->
+<div id="indirizzo" class="page">
+<div style="flex-direction:column;width:100%">
+<h2>Dove si svolgerà</h2>
 
-<section id="indirizzo" class="page">
-
-<h2>Dove si svolgerà il matrimonio</h2>
-
-<div class="box">
-
-<p><strong>Location</strong></p>
-<p>La Femme</p>
-<p>Via Cesare Battisti 58</p>
-<p>San Bartolomeo al Mare</p>
-
-<p style="margin-top:20px">
-Sabato 26 settembre 2026<br>
-Cerimonia e festeggiamenti dalle ore 16:00
+<p>
+Location: <b>La Femme</b><br>
+Via Cesare Battisti 58<br>
+San Bartolomeo al Mare
 </p>
 
-<iframe src="https://www.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&output=embed"></iframe>
+<iframe src="https://maps.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
 
 </div>
+</div>
 
-</section>
-
-<section id="rsvp" class="page">
-
+<!-- RSVP -->
+<div id="rsvp" class="page">
+<div style="flex-direction:column;width:100%">
 <h2>Conferma la tua presenza</h2>
 
-<div class="box">
+<p>Compila il modulo qui sotto per confermare la tua partecipazione.</p>
 
-<form action="https://formspree.io/f/yourcode" method="POST">
+<form action="https://formsubmit.co/bejleri.bruno@gmail.com" method="POST">
 
 <input type="text" name="nome" placeholder="Nome" required>
-
 <input type="text" name="cognome" placeholder="Cognome" required>
+<input type="number" name="persone" placeholder="Numero di persone" required>
 
-<input type="number" name="persone" placeholder="Numero di persone" min="1" required>
+<textarea name="allergie" placeholder="Allergie / Intolleranze (facoltativo)"></textarea>
 
-<input type="email" name="email" placeholder="Email (facoltativa)">
-
-<button type="submit">Invia conferma</button>
+<button class="submit" type="submit">Invia conferma</button>
 
 </form>
 
-<p style="margin-top:15px;font-size:0.9rem">
-Riceveremo la conferma all'indirizzo <strong>bejleri.bruno@gmail.com</strong><br>
-Per ulteriori informazioni potete contattarci al <strong>+39 320 618 3730</strong>
-</p>
+<p style="margin-top:20px">Riceveremo direttamente la vostra conferma. Per ulteriori informazioni potete contattarci al numero <b>+39 320 618 3730</b>.</p>
 
 </div>
-
-</section>
-
-<section id="info" class="page">
-
-<h2>Informazioni utili</h2>
-
-<div class="box">
-
-<p>Se avete allergie o intolleranze alimentari potete comunicarcelo qui sotto oppure indicarlo nella conferma della presenza.</p>
-
-<input class="info-input" type="text" placeholder="Allergie / Intolleranze alimentari">
-
-<p style="margin-top:20px">Faremo il possibile per far sì che tutti possano godersi al meglio la giornata.</p>
-
-<p style="margin-top:15px">Il vostro affetto e la vostra presenza saranno il regalo più grande.</p>
-
 </div>
 
-</section>
-
-<footer>
-Con amore • Bruno & Christina • 26 settembre 2026
-</footer>
+</div>
 
 <script>
 
-function showPage(page){
-
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-
-document.getElementById(page).classList.add('active');
-
-document.getElementById('dropdownMenu').style.display='none';
-
-window.scrollTo({top:0,behavior:'smooth'});
-
-}
-
 function toggleMenu(){
+var menu=document.getElementById("dropdown");
+menu.style.display=menu.style.display==="block"?"none":"block";
+}
 
-let menu=document.getElementById('dropdownMenu');
+function showPage(page){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(page).classList.add("active");
+document.getElementById("dropdown").style.display="none";
+}
 
-if(menu.style.display==='block'){
-menu.style.display='none';
+const weddingDate=new Date("September 26, 2026 16:00:00");
+
+function updateCountdown(){
+const now=new Date();
+const diff=weddingDate-now;
+
+const days=Math.floor(diff/(1000*60*60*24));
+
+if(days>0){
+document.getElementById("countdown").innerText="Mancano "+days+" giorni al nostro sì";
 }else{
-menu.style.display='block';
+document.getElementById("countdown").innerText="È il grande giorno!";
+}
 }
 
-}
-
-/* COUNTDOWN MATRIMONIO */
-const weddingDate = new Date("September 26, 2026 16:00:00").getTime();
-
-const countdown = document.getElementById("countdown");
-
-setInterval(function(){
-
-let now = new Date().getTime();
-let distance = weddingDate - now;
-
-let days = Math.floor(distance / (1000*60*60*24));
-let hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-
-countdown.innerHTML = "Mancano " + days + " giorni al nostro sì";
-
-},1000);
+setInterval(updateCountdown,1000);
+updateCountdown();
 
 </script>
 
