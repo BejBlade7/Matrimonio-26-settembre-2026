@@ -15,32 +15,6 @@ color:#2f3e34;
 overflow-x:hidden;
 }
 
-/* Olive soft background pattern */
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-background-image:url("https://www.transparenttextures.com/patterns/leaf.png");
-opacity:0.85;
-z-index:-2;
-}
-
-/* Olive corner decorations */
-.corner{
-position:fixed;
-width:180px;
-opacity:0.9;
-z-index:-1;
-}
-
-.top-left{top:0;left:0}
-.top-right{top:0;right:0;transform:scaleX(-1)}
-.bottom-left{bottom:0;left:0;transform:scaleY(-1)}
-.bottom-right{bottom:0;right:0;transform:rotate(180deg)}
-
 header{
 display:flex;
 justify-content:space-between;
@@ -169,12 +143,6 @@ border-radius:10px;
 
 <body>
 
-<!-- Olive corner images -->
-<img class="corner top-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
-<img class="corner top-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
-<img class="corner bottom-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
-<img class="corner bottom-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
-
 <header>
 <div class="title">Bruno & Christina</div>
 <div class="menu">
@@ -206,7 +174,7 @@ Sarà una giornata fatta di emozioni, sorrisi, buon cibo e momenti indimenticabi
 </div>
 
 <div class="photo">
-<img src="foto.jpg" alt="Bruno e Christina">
+<img src="foto-proposta.jpg" alt="Bruno e Christina">
 </div>
 
 </div>
