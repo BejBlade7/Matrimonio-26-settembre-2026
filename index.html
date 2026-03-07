@@ -8,22 +8,22 @@
 <style>
 
 body{
-font-family: 'Georgia', serif;
+font-family:'Georgia',serif;
 margin:0;
-background:#f6f8f4;
+background:#eef3ed;
 color:#2f3e34;
 overflow-x:hidden;
 }
 
-/* Olive background */
+/* Olive soft background pattern */
 body::before{
 content:"";
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:url('https://www.transparenttextures.com/patterns/leaves.png');
+top:0;
+left:0;
+background-image:url("https://www.transparenttextures.com/patterns/leaf.png");
 opacity:0.85;
 z-index:-2;
 }
@@ -31,15 +31,15 @@ z-index:-2;
 /* Olive corner decorations */
 .corner{
 position:fixed;
-width:160px;
-opacity:0.85;
+width:180px;
+opacity:0.9;
 z-index:-1;
 }
 
-.corner.top-left{top:0;left:0;transform:rotate(0deg)}
-.corner.top-right{top:0;right:0;transform:scaleX(-1)}
-.corner.bottom-left{bottom:0;left:0;transform:scaleY(-1)}
-.corner.bottom-right{bottom:0;right:0;transform:rotate(180deg)}
+.top-left{top:0;left:0}
+.top-right{top:0;right:0;transform:scaleX(-1)}
+.bottom-left{bottom:0;left:0;transform:scaleY(-1)}
+.bottom-right{bottom:0;right:0;transform:rotate(180deg)}
 
 header{
 display:flex;
@@ -54,9 +54,7 @@ font-size:24px;
 font-weight:bold;
 }
 
-.menu{
-position:relative;
-}
+.menu{position:relative}
 
 .menu button{
 background:#7c9a85;
@@ -86,9 +84,7 @@ text-decoration:none;
 color:#2f3e34;
 }
 
-.dropdown a:hover{
-background:#f1f4ef;
-}
+.dropdown a:hover{background:#f1f4ef}
 
 @keyframes fadeMenu{
 from{opacity:0; transform:translateY(-5px)}
@@ -101,14 +97,9 @@ margin:auto;
 padding:40px 20px;
 }
 
-.page{
-display:none;
-animation:fadePage .6s ease;
-}
+.page{display:none;animation:fadePage .6s ease}
 
-.page.active{
-display:flex;
-}
+.page.active{display:flex}
 
 @keyframes fadePage{
 from{opacity:0; transform:translateY(15px)}
@@ -122,15 +113,9 @@ align-items:center;
 gap:40px;
 }
 
-.text{
-flex:1;
-font-size:18px;
-line-height:1.7;
-}
+.text{flex:1;font-size:18px;line-height:1.7}
 
-.photo{
-flex:1;
-}
+.photo{flex:1}
 
 .photo img{
 width:100%;
@@ -139,9 +124,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 transition:transform .4s ease;
 }
 
-.photo img:hover{
-transform:scale(1.03);
-}
+.photo img:hover{transform:scale(1.03)}
 
 .countdown{
 margin-top:20px;
@@ -186,10 +169,11 @@ border-radius:10px;
 
 <body>
 
-<img class="corner top-left" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
-<img class="corner top-right" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
-<img class="corner bottom-left" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
-<img class="corner bottom-right" src="https://pngimg.com/uploads/olive_branch/olive_branch_PNG24.png">
+<!-- Olive corner images -->
+<img class="corner top-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
+<img class="corner top-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
+<img class="corner bottom-left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
+<img class="corner bottom-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olive_branch.svg/512px-Olive_branch.svg.png">
 
 <header>
 <div class="title">Bruno & Christina</div>
@@ -213,12 +197,8 @@ border-radius:10px;
 
 <p>
 Con immensa gioia vi invitiamo a celebrare con noi il giorno più importante della nostra vita.
-
 Il <b>26 settembre 2026</b> alle ore <b>16:00</b> ci uniremo in matrimonio circondati dalle persone che amiamo.
-
 Sarà una giornata fatta di emozioni, sorrisi, buon cibo e momenti indimenticabili.
-
-Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra storia.
 </p>
 
 <div class="countdown" id="countdown"></div>
@@ -291,7 +271,6 @@ const weddingDate=new Date("September 26, 2026 16:00:00");
 function updateCountdown(){
 const now=new Date();
 const diff=weddingDate-now;
-
 const days=Math.floor(diff/(1000*60*60*24));
 
 if(days>0){
