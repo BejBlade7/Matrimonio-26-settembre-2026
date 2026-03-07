@@ -23,6 +23,21 @@ margin:0;
 font-family:'Montserrat',sans-serif;
 background:var(--beige);
 color:var(--text-dark);
+overflow-x:hidden;
+}
+
+/* SFONDO DECORATIVO ULIVO */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url('https://www.transparenttextures.com/patterns/leaf.png');
+opacity:0.04;
+pointer-events:none;
+z-index:-1;
 }
 
 /* NAVBAR */
@@ -81,15 +96,23 @@ white-space:nowrap;
 background:var(--green-light);
 }
 
+/* SEZIONI CON TRANSIZIONE */
 section{
 padding:110px 20px 80px 20px;
 max-width:1100px;
 margin:auto;
-display:none;
+opacity:0;
+transform:translateY(15px);
+transition:opacity 0.6s ease, transform 0.6s ease;
+position:absolute;
+left:0;
+right:0;
 }
 
 section.active{
-display:block;
+opacity:1;
+transform:translateY(0);
+position:relative;
 }
 
 h1{
@@ -102,237 +125,4 @@ margin-bottom:20px;
 h2{
 font-family:'Playfair Display',serif;
 color:var(--green-main);
-text-align:center;
-margin-bottom:30px;
-}
-
-/* BENVENUTI LAYOUT */
-.welcome-container{
-display:flex;
-flex-wrap:wrap;
-gap:40px;
-align-items:center;
-}
-
-.welcome-text{
-flex:1;
-min-width:260px;
-font-size:18px;
-line-height:1.7;
-}
-
-.welcome-photo{
-flex:1;
-min-width:260px;
-text-align:center;
-}
-
-.welcome-photo img{
-max-height:520px;
-width:auto;
-border-radius:16px;
-box-shadow:0 12px 35px rgba(0,0,0,0.15);
-}
-
-.box{
-background:white;
-padding:40px;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-form input, form button{
-width:100%;
-padding:14px;
-margin-top:12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:1rem;
-}
-
-form button{
-background:var(--green-main);
-color:white;
-border:none;
-cursor:pointer;
-}
-
-iframe{
-width:100%;
-height:350px;
-border:0;
-border-radius:14px;
-margin-top:20px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-font-size:0.9rem;
-color:#666;
-}
-
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="nav-container">
-<div class="logo">Bruno & Christina</div>
-
-<div class="menu">
-<div class="menu-button" onclick="toggleMenu()">Menu ▾</div>
-<div class="dropdown" id="dropdownMenu">
-<div onclick="showPage('benvenuti')">Benvenuti!</div>
-<div onclick="showPage('indirizzo')">Indirizzo</div>
-<div onclick="showPage('rsvp')">Conferma la tua presenza</div>
-<div onclick="showPage('info')">Info</div>
-</div>
-</div>
-</div>
-</nav>
-
-<!-- BENVENUTI -->
-<section id="benvenuti" class="active" data-aos="fade-up">
-
-<h1>Benvenuti!</h1>
-
-<div class="welcome-container">
-
-<div class="welcome-text">
-<p>
-Ci siamo incontrati quasi per caso, ma abbiamo capito subito che tra noi c'era qualcosa di speciale.
-</p>
-
-<p>
-Tra viaggi, sogni e tanti momenti condivisi, abbiamo costruito una storia fatta di complicità, rispetto e amore.
-</p>
-
-<p>
-Il 26 settembre 2026 diremo il nostro "sì" e non potremmo essere più felici di festeggiare questo momento insieme alle persone che amiamo.
-</p>
-
-<p>
-Grazie per essere parte della nostra vita e di questo giorno così importante.
-</p>
-</div>
-
-<div class="welcome-photo">
-<img src="foto-proposta.jpg" alt="Bruno e Christina">
-</div>
-
-</div>
-
-</section>
-
-<!-- INDIRIZZO -->
-<section id="indirizzo" data-aos="fade-up">
-
-<h2>Dove si svolgerà il matrimonio</h2>
-
-<div class="box">
-
-<p><strong>Location</strong></p>
-<p>La Femme</p>
-<p>Via Cesare Battisti 58</p>
-<p>San Bartolomeo al Mare</p>
-
-<p style="margin-top:20px">
-Sabato 26 settembre 2026<br>
-Cerimonia e festeggiamenti dalle ore 16:00
-</p>
-
-<iframe src="https://www.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&output=embed"></iframe>
-
-</div>
-
-</section>
-
-<!-- RSVP -->
-<section id="rsvp" data-aos="fade-up">
-
-<h2>Conferma la tua presenza</h2>
-
-<div class="box">
-
-<form action="https://formspree.io/f/yourcode" method="POST">
-
-<input type="text" name="nome" placeholder="Nome" required>
-
-<input type="text" name="cognome" placeholder="Cognome" required>
-
-<input type="number" name="persone" placeholder="Numero di persone" min="1" required>
-
-<input type="email" name="email" placeholder="Email (facoltativa)">
-
-<button type="submit">Invia conferma</button>
-
-</form>
-
-<p style="margin-top:15px;font-size:0.9rem">
-Riceveremo la conferma all'indirizzo <strong>bejleri.bruno@gmail.com</strong>
-</p>
-
-</div>
-
-</section>
-
-<!-- INFO -->
-<section id="info" data-aos="fade-up">
-
-<h2>Informazioni utili</h2>
-
-<div class="box">
-
-<p>
-Per qualsiasi esigenza particolare (intolleranze alimentari, allergie o richieste specifiche) vi chiediamo gentilmente di comunicarcelo nella sezione di conferma della presenza.
-</p>
-
-<p style="margin-top:15px">
-Faremo il possibile per far sì che tutti possano godersi al meglio la giornata.
-</p>
-
-<p style="margin-top:15px">
-Il vostro affetto e la vostra presenza saranno il regalo più grande.
-</p>
-
-</div>
-
-</section>
-
-<footer>
-Con amore • Bruno & Christina • 26 settembre 2026
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-AOS.init({duration:1000,once:true});
-
-function showPage(page){
-
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-
-document.getElementById(page).classList.add("active");
-
-document.getElementById("dropdownMenu").style.display="none";
-
-window.scrollTo(0,0);
-}
-
-function toggleMenu(){
-
-let menu=document.getElementById("dropdownMenu");
-
-if(menu.style.display==="block"){
-menu.style.display="none";
-}else{
-menu.style.display="block";
-}
-
-}
-</script>
-
-</body>
-</html>
+text-alig
