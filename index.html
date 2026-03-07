@@ -1,223 +1,337 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bruno & Christina – 26 settembre 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruno & Christina – 26 settembre 2026</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-  <!-- Animate on Scroll -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<style>
+:root{
+--green-main:#9caf9c;
+--green-light:#e6efe6;
+--beige:#f5f1ec;
+--text-dark:#3a3a3a;
+}
 
-  <style>
-    :root {
-      --green-main: #9caf9c;
-      --green-light: #e6efe6;
-      --beige: #f5f1ec;
-      --text-dark: #3a3a3a;
-    }
+*{box-sizing:border-box}
 
-    * { box-sizing: border-box; }
+body{
+margin:0;
+font-family:'Montserrat',sans-serif;
+background:var(--beige);
+color:var(--text-dark);
+}
 
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--beige);
-      color: var(--text-dark);
-    }
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,0.95);
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+z-index:1000;
+}
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.95);
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
+.nav-container{
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 20px;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      padding: 15px;
-      margin: 0;
-    }
+.logo{
+font-family:'Playfair Display',serif;
+color:var(--green-main);
+font-size:20px;
+}
 
-    nav ul li {
-      margin: 0 20px;
-      cursor: pointer;
-      font-weight: 500;
-      color: var(--green-main);
-    }
+.menu{
+position:relative;
+}
 
-    /* HERO */
-    header {
-      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding-top: 60px;
-    }
+.menu-button{
+cursor:pointer;
+font-weight:500;
+color:var(--green-main);
+}
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      margin-bottom: 10px;
-    }
+.dropdown{
+display:none;
+position:absolute;
+right:0;
+top:28px;
+background:white;
+border-radius:10px;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+overflow:hidden;
+}
 
-    header p {
-      font-size: 1.2rem;
-      letter-spacing: 2px;
-    }
+.dropdown div{
+padding:12px 18px;
+cursor:pointer;
+white-space:nowrap;
+}
 
-    section {
-      padding: 90px 20px;
-      max-width: 900px;
-      margin: auto;
-      display: none;
-    }
+.dropdown div:hover{
+background:var(--green-light);
+}
 
-    section.active {
-      display: block;
-    }
+section{
+padding:110px 20px 80px 20px;
+max-width:1100px;
+margin:auto;
+display:none;
+}
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 30px;
-      color: var(--green-main);
-    }
+section.active{
+display:block;
+}
 
-    .box {
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
+h1{
+font-family:'Playfair Display',serif;
+font-size:40px;
+color:var(--green-main);
+margin-bottom:20px;
+}
 
-    .box img {
-      width: 100%;
-      border-radius: 14px;
-      margin-top: 20px;
-    }
+h2{
+font-family:'Playfair Display',serif;
+color:var(--green-main);
+text-align:center;
+margin-bottom:30px;
+}
 
-    .info {
-      background: var(--green-light);
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-    }
+/* BENVENUTI LAYOUT */
+.welcome-container{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+align-items:center;
+}
 
-    form input, form button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
+.welcome-text{
+flex:1;
+min-width:260px;
+font-size:18px;
+line-height:1.7;
+}
 
-    form button {
-      background-color: var(--green-main);
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+.welcome-photo{
+flex:1;
+min-width:260px;
+text-align:center;
+}
 
-    iframe {
-      width: 100%;
-      height: 350px;
-      border: 0;
-      border-radius: 14px;
-      margin-top: 20px;
-    }
+.welcome-photo img{
+max-height:520px;
+width:auto;
+border-radius:16px;
+box-shadow:0 12px 35px rgba(0,0,0,0.15);
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+.box{
+background:white;
+padding:40px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+form input, form button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:1rem;
+}
+
+form button{
+background:var(--green-main);
+color:white;
+border:none;
+cursor:pointer;
+}
+
+iframe{
+width:100%;
+height:350px;
+border:0;
+border-radius:14px;
+margin-top:20px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+font-size:0.9rem;
+color:#666;
+}
+
+</style>
 </head>
+
 <body>
 
 <nav>
-  <ul>
-    <li onclick="showPage('home')">Informazioni</li>
-    <li onclick="showPage('rsvp')">Conferma presenza</li>
-  </ul>
+<div class="nav-container">
+<div class="logo">Bruno & Christina</div>
+
+<div class="menu">
+<div class="menu-button" onclick="toggleMenu()">Menu ▾</div>
+<div class="dropdown" id="dropdownMenu">
+<div onclick="showPage('benvenuti')">Benvenuti!</div>
+<div onclick="showPage('indirizzo')">Indirizzo</div>
+<div onclick="showPage('rsvp')">Conferma la tua presenza</div>
+<div onclick="showPage('info')">Info</div>
+</div>
+</div>
+</div>
 </nav>
 
-<header>
-  <div data-aos="fade-up">
-    <h1>Bruno & Christina</h1>
-    <p>26 • 09 • 2026</p>
-  </div>
-</header>
+<!-- BENVENUTI -->
+<section id="benvenuti" class="active" data-aos="fade-up">
 
-<section id="home" class="active" data-aos="fade-up">
-  <h2>La nostra storia</h2>
-  <div class="box">
-    <p>
-      Due strade che si sono incontrate e hanno deciso di camminare insieme.
-      Con gioia vi invitiamo a celebrare il nostro matrimonio.
-    </p>
-  </div>
+<h1>Benvenuti!</h1>
 
-  <h2 style="margin-top:60px">Il matrimonio</h2>
-  <div class="info">
-    <p><strong>📍 Location:</strong> La Femme</p>
-    <p>Via Cesare Battisti 58, San Bartolomeo al Mare</p>
-    <p><strong>🕓 Orario:</strong> dalle 16:00 – cena inclusa</p>
-  </div>
+<div class="welcome-container">
 
-  <iframe
-    src="https://www.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&output=embed"
-    loading="lazy">
-  </iframe>
+<div class="welcome-text">
+<p>
+Ci siamo incontrati quasi per caso, ma abbiamo capito subito che tra noi c'era qualcosa di speciale.
+</p>
+
+<p>
+Tra viaggi, sogni e tanti momenti condivisi, abbiamo costruito una storia fatta di complicità, rispetto e amore.
+</p>
+
+<p>
+Il 26 settembre 2026 diremo il nostro "sì" e non potremmo essere più felici di festeggiare questo momento insieme alle persone che amiamo.
+</p>
+
+<p>
+Grazie per essere parte della nostra vita e di questo giorno così importante.
+</p>
+</div>
+
+<div class="welcome-photo">
+<img src="foto-proposta.jpg" alt="Bruno e Christina">
+</div>
+
+</div>
+
 </section>
 
+<!-- INDIRIZZO -->
+<section id="indirizzo" data-aos="fade-up">
+
+<h2>Dove si svolgerà il matrimonio</h2>
+
+<div class="box">
+
+<p><strong>Location</strong></p>
+<p>La Femme</p>
+<p>Via Cesare Battisti 58</p>
+<p>San Bartolomeo al Mare</p>
+
+<p style="margin-top:20px">
+Sabato 26 settembre 2026<br>
+Cerimonia e festeggiamenti dalle ore 16:00
+</p>
+
+<iframe src="https://www.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&output=embed"></iframe>
+
+</div>
+
+</section>
+
+<!-- RSVP -->
 <section id="rsvp" data-aos="fade-up">
-  <h2>Conferma la tua presenza</h2>
-  <div class="box">
-    <!-- Formspree: invia notifica a bejleri.bruno@gmail.com -->
-    <form action="https://formspree.io/f/xbjvjqkd" method="POST">
-      <input type="text" name="nome" placeholder="Nome" required>
-      <input type="text" name="cognome" placeholder="Cognome" required>
-      <input type="number" name="persone" placeholder="Numero di persone" min="1" required>
-      <input type="email" name="email" placeholder="Email (facoltativa)">
-      <button type="submit">Invia conferma</button>
-    </form>
-    <p style="margin-top:15px;font-size:0.9rem">
-      Riceveremo la conferma all'indirizzo <strong>bejleri.bruno@gmail.com</strong>
-    </p>
-  </div>
+
+<h2>Conferma la tua presenza</h2>
+
+<div class="box">
+
+<form action="https://formspree.io/f/yourcode" method="POST">
+
+<input type="text" name="nome" placeholder="Nome" required>
+
+<input type="text" name="cognome" placeholder="Cognome" required>
+
+<input type="number" name="persone" placeholder="Numero di persone" min="1" required>
+
+<input type="email" name="email" placeholder="Email (facoltativa)">
+
+<button type="submit">Invia conferma</button>
+
+</form>
+
+<p style="margin-top:15px;font-size:0.9rem">
+Riceveremo la conferma all'indirizzo <strong>bejleri.bruno@gmail.com</strong>
+</p>
+
+</div>
+
+</section>
+
+<!-- INFO -->
+<section id="info" data-aos="fade-up">
+
+<h2>Informazioni utili</h2>
+
+<div class="box">
+
+<p>
+Per qualsiasi esigenza particolare (intolleranze alimentari, allergie o richieste specifiche) vi chiediamo gentilmente di comunicarcelo nella sezione di conferma della presenza.
+</p>
+
+<p style="margin-top:15px">
+Faremo il possibile per far sì che tutti possano godersi al meglio la giornata.
+</p>
+
+<p style="margin-top:15px">
+Il vostro affetto e la vostra presenza saranno il regalo più grande.
+</p>
+
+</div>
+
 </section>
 
 <footer>
-  Con amore • Bruno & Christina • 26 settembre 2026
+Con amore • Bruno & Christina • 26 settembre 2026
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
 
-  function showPage(page) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(page).classList.add('active');
-    window.scrollTo(0, 0);
-  }
+<script>
+AOS.init({duration:1000,once:true});
+
+function showPage(page){
+
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+
+document.getElementById(page).classList.add("active");
+
+document.getElementById("dropdownMenu").style.display="none";
+
+window.scrollTo(0,0);
+}
+
+function toggleMenu(){
+
+let menu=document.getElementById("dropdownMenu");
+
+if(menu.style.display==="block"){
+menu.style.display="none";
+}else{
+menu.style.display="block";
+}
+
+}
 </script>
 
 </body>
