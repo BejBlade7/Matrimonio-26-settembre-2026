@@ -26,7 +26,7 @@ color:var(--text-dark);
 overflow-x:hidden;
 }
 
-/* SFONDO DECORATIVO ULIVO */
+/* DECORAZIONE ULIVO MOLTO LEGGERA */
 body::before{
 content:"";
 position:fixed;
@@ -34,8 +34,8 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background-image:url('https://www.transparenttextures.com/patterns/leaf.png');
-opacity:0.04;
+background-image:url("https://www.transparenttextures.com/patterns/leaf.png");
+opacity:0.035;
 pointer-events:none;
 z-index:-1;
 }
@@ -65,9 +65,7 @@ color:var(--green-main);
 font-size:20px;
 }
 
-.menu{
-position:relative;
-}
+.menu{position:relative}
 
 .menu-button{
 cursor:pointer;
@@ -96,23 +94,21 @@ white-space:nowrap;
 background:var(--green-light);
 }
 
-/* SEZIONI CON TRANSIZIONE */
-section{
+/* PAGINE */
+.page{
 padding:110px 20px 80px 20px;
 max-width:1100px;
 margin:auto;
+display:none;
 opacity:0;
-transform:translateY(15px);
-transition:opacity 0.6s ease, transform 0.6s ease;
-position:absolute;
-left:0;
-right:0;
+transform:translateY(10px);
+transition:all 0.5s ease;
 }
 
-section.active{
+.page.active{
+display:block;
 opacity:1;
 transform:translateY(0);
-position:relative;
 }
 
 h1{
@@ -129,7 +125,7 @@ text-align:center;
 margin-bottom:30px;
 }
 
-/* BENVENUTI LAYOUT */
+/* BENVENUTI */
 .welcome-container{
 display:flex;
 flex-wrap:wrap;
@@ -217,28 +213,20 @@ color:#666;
 </nav>
 
 <!-- BENVENUTI -->
-<section id="benvenuti" class="active" data-aos="fade-up">
+<section id="benvenuti" class="page active">
 
 <h1>Benvenuti!</h1>
 
 <div class="welcome-container">
 
 <div class="welcome-text">
-<p>
-Ci siamo incontrati quasi per caso, ma abbiamo capito subito che tra noi c'era qualcosa di speciale.
-</p>
+<p>Ci siamo incontrati quasi per caso, ma abbiamo capito subito che tra noi c'era qualcosa di speciale.</p>
 
-<p>
-Tra viaggi, sogni e tanti momenti condivisi, abbiamo costruito una storia fatta di complicità, rispetto e amore.
-</p>
+<p>Tra viaggi, sogni e tanti momenti condivisi, abbiamo costruito una storia fatta di complicità, rispetto e amore.</p>
 
-<p>
-Il 26 settembre 2026 diremo il nostro "sì" e non potremmo essere più felici di festeggiare questo momento insieme alle persone che amiamo.
-</p>
+<p>Il 26 settembre 2026 diremo il nostro "sì" e non potremmo essere più felici di festeggiare questo momento insieme alle persone che amiamo.</p>
 
-<p>
-Grazie per essere parte della nostra vita e di questo giorno così importante.
-</p>
+<p>Grazie per essere parte della nostra vita e di questo giorno così importante.</p>
 </div>
 
 <div class="welcome-photo">
@@ -250,7 +238,7 @@ Grazie per essere parte della nostra vita e di questo giorno così importante.
 </section>
 
 <!-- INDIRIZZO -->
-<section id="indirizzo" data-aos="fade-up">
+<section id="indirizzo" class="page">
 
 <h2>Dove si svolgerà il matrimonio</h2>
 
@@ -273,7 +261,7 @@ Cerimonia e festeggiamenti dalle ore 16:00
 </section>
 
 <!-- RSVP -->
-<section id="rsvp" data-aos="fade-up">
+<section id="rsvp" class="page">
 
 <h2>Conferma la tua presenza</h2>
 
@@ -303,25 +291,19 @@ Per ulteriori informazioni potete contattarci al <strong>+39 320 618 3730</stron
 </section>
 
 <!-- INFO -->
-<section id="info" data-aos="fade-up">
+<section id="info" class="page">
 
 <h2>Informazioni utili</h2>
 
 <div class="box">
 
-<p>
-Se avete allergie o intolleranze alimentari potete comunicarcelo qui sotto oppure indicarlo nella conferma della presenza.
-</p>
+<p>Se avete allergie o intolleranze alimentari potete comunicarcelo qui sotto oppure indicarlo nella conferma della presenza.</p>
 
 <input class="info-input" type="text" placeholder="Allergie / Intolleranze alimentari">
 
-<p style="margin-top:20px">
-Faremo il possibile per far sì che tutti possano godersi al meglio la giornata.
-</p>
+<p style="margin-top:20px">Faremo il possibile per far sì che tutti possano godersi al meglio la giornata.</p>
 
-<p style="margin-top:15px">
-Il vostro affetto e la vostra presenza saranno il regalo più grande.
-</p>
+<p style="margin-top:15px">Il vostro affetto e la vostra presenza saranno il regalo più grande.</p>
 
 </div>
 
@@ -331,33 +313,32 @@ Il vostro affetto e la vostra presenza saranno il regalo più grande.
 Con amore • Bruno & Christina • 26 settembre 2026
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 <script>
-AOS.init({duration:1000,once:true});
 
 function showPage(page){
 
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 
-document.getElementById(page).classList.add("active");
+document.getElementById(page).classList.add('active');
 
-document.getElementById("dropdownMenu").style.display="none";
+document.getElementById('dropdownMenu').style.display='none';
 
-window.scrollTo({top:0,behavior:"smooth"});
+window.scrollTo({top:0,behavior:'smooth'});
+
 }
 
 function toggleMenu(){
 
-let menu=document.getElementById("dropdownMenu");
+let menu=document.getElementById('dropdownMenu');
 
-if(menu.style.display==="block"){
-menu.style.display="none";
+if(menu.style.display==='block'){
+menu.style.display='none';
 }else{
-menu.style.display="block";
+menu.style.display='block';
 }
 
 }
+
 </script>
 
 </body>
