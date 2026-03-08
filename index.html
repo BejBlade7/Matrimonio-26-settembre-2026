@@ -5,16 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bruno & Christina - 26 Settembre 2026</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:'Georgia',serif;
+font-family:'Cormorant Garamond',serif;
 margin:0;
 background:#eef3ed;
 color:#2f3e34;
 overflow-x:hidden;
+animation:pageFade 1.2s ease;
+}
+
+@keyframes pageFade{
+from{opacity:0}
+to{opacity:1}
 }
 
 header{
@@ -27,8 +33,19 @@ background:#dfe8dc;
 
 .title{
 font-family:'Playfair Display',serif;
-font-size:26px;
+font-size:28px;
 font-weight:600;
+letter-spacing:1px;
+}
+
+/* decorative line */
+.title::after{
+content:"";
+display:block;
+width:60px;
+height:2px;
+background:#7c9a85;
+margin-top:6px;
 }
 
 .menu{position:relative}
@@ -40,7 +57,7 @@ color:white;
 padding:10px 18px;
 border-radius:20px;
 cursor:pointer;
-font-size:16px;
+font-size:15px;
 }
 
 .dropdown{
@@ -48,7 +65,7 @@ display:none;
 position:absolute;
 right:0;
 background:white;
-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+box-shadow:0 8px 18px rgba(0,0,0,0.15);
 border-radius:10px;
 overflow:hidden;
 animation:fadeMenu .3s ease;
@@ -59,6 +76,7 @@ display:block;
 padding:12px 20px;
 text-decoration:none;
 color:#2f3e34;
+font-size:16px;
 }
 
 .dropdown a:hover{background:#f1f4ef}
@@ -71,50 +89,53 @@ to{opacity:1; transform:translateY(0)}
 .container{
 max-width:1100px;
 margin:auto;
-padding:40px 20px;
-position:relative;
-z-index:1;
+padding:50px 20px;
 }
 
-.page{display:none;animation:fadePage .6s ease}
+.page{display:none;animation:fadePage .7s ease}
 
 .page.active{display:flex}
 
 @keyframes fadePage{
-from{opacity:0; transform:translateY(15px)}
+from{opacity:0; transform:translateY(20px)}
 to{opacity:1; transform:translateY(0)}
 }
 
 h2{
 font-family:'Playfair Display',serif;
-font-size:34px;
+font-size:36px;
 margin-top:0;
+margin-bottom:10px;
 }
 
 .welcome{
 display:flex;
 flex-wrap:wrap;
 align-items:center;
-gap:40px;
+gap:50px;
 }
 
-.text{flex:1;font-size:18px;line-height:1.7}
+.text{
+flex:1;
+font-size:20px;
+line-height:1.7;
+}
 
 .photo{flex:1}
 
 .photo img{
 width:100%;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-transition:transform .4s ease;
+border-radius:14px;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+transition:transform .5s ease;
 }
 
-.photo img:hover{transform:scale(1.03)}
+.photo img:hover{transform:scale(1.04)}
 
 .countdown{
 margin-top:20px;
-font-weight:bold;
-font-size:20px;
+font-weight:500;
+font-size:22px;
 color:#6f8f79;
 }
 
@@ -122,31 +143,66 @@ form{
 display:flex;
 flex-direction:column;
 gap:15px;
-max-width:500px;
+max-width:520px;
 }
 
 input,textarea{
-padding:12px;
+padding:13px;
 border-radius:10px;
 border:1px solid #ccc;
-font-size:15px;
+font-size:16px;
+font-family:'Cormorant Garamond',serif;
 }
 
 button.submit{
 background:#7c9a85;
 color:white;
 border:none;
-padding:12px;
-border-radius:20px;
+padding:13px;
+border-radius:25px;
 font-size:16px;
 cursor:pointer;
+transition:.3s;
+}
+
+button.submit:hover{
+background:#6b8775;
 }
 
 iframe{
 width:100%;
-height:400px;
+height:420px;
 border:0;
-border-radius:10px;
+border-radius:12px;
+margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+header{
+padding:15px 20px;
+}
+
+.title{
+font-size:22px;
+}
+
+.welcome{
+flex-direction:column;
+text-align:center;
+}
+
+.text{
+font-size:19px;
+}
+
+.photo img{
+max-width:420px;
+margin:auto;
+}
+
 }
 
 </style>
@@ -172,12 +228,14 @@ border-radius:10px;
 <div id="home" class="page active welcome">
 
 <div class="text">
-<h2>Benvenuti!</h2>
+<h2>Benvenuti</h2>
 
 <p>
-Con immensa gioia vi invitiamo a celebrare con noi il giorno più importante della nostra vita.
+Con immensa gioia vi invitiamo a celebrare con noi uno dei momenti più importanti della nostra vita.
 Il <b>26 settembre 2026</b> alle ore <b>16:00</b> ci uniremo in matrimonio circondati dalle persone che amiamo.
+
 Sarà una giornata fatta di emozioni, sorrisi, buon cibo e momenti indimenticabili.
+Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra storia.
 </p>
 
 <div class="countdown" id="countdown"></div>
