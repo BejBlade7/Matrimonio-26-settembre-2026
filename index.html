@@ -236,6 +236,23 @@ animation:fadeText 1.2s ease;
 animation:pulseCountdown 2s infinite;
 }
 
+@keyframes petals{
+0%{transform:translateY(-20px) rotate(0deg);opacity:0}
+10%{opacity:.6}
+100%{transform:translateY(120px) rotate(360deg);opacity:0}
+}
+
+#home.active::after{
+content:"🌸 🌸 🌸";
+position:absolute;
+left:50%;
+top:0;
+transform:translateX(-50%);
+font-size:22px;
+animation:petals 6s linear infinite;
+pointer-events:none;
+}
+
 </style>
 </head>
 
