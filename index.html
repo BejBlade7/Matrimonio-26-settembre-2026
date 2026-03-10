@@ -38,7 +38,6 @@ font-weight:600;
 letter-spacing:1px;
 }
 
-/* decorative line */
 .title::after{
 content:"";
 display:block;
@@ -177,7 +176,22 @@ border-radius:12px;
 margin-top:10px;
 }
 
-/* MOBILE */
+.viaggio{
+font-size:22px;
+line-height:1.9;
+text-align:center;
+margin-top:20px;
+}
+
+.iban{
+margin-top:30px;
+font-size:20px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
 
 @media(max-width:800px){
 
@@ -218,6 +232,7 @@ margin:auto;
 <a href="#" onclick="showPage('home')">Benvenuti</a>
 <a href="#" onclick="showPage('indirizzo')">Indirizzo</a>
 <a href="#" onclick="showPage('rsvp')">Conferma la tua presenza</a>
+<a href="#" onclick="showPage('viaggio')">Viaggio di Nozze</a>
 </div>
 </div>
 </header>
@@ -250,7 +265,6 @@ Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra s
 
 <!-- LOCATION -->
 <div id="indirizzo" class="page">
-<div style="flex-direction:column;width:100%">
 <h2>Dove si svolgerà</h2>
 
 <p>
@@ -262,11 +276,9 @@ San Bartolomeo al Mare
 <iframe src="https://maps.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
 
 </div>
-</div>
 
 <!-- RSVP -->
 <div id="rsvp" class="page">
-<div style="flex-direction:column;width:100%">
 <h2>Conferma la tua presenza</h2>
 
 <p>Compila il modulo qui sotto per confermare la tua partecipazione.</p>
@@ -290,6 +302,34 @@ Per questo giorno speciale vogliamo che tutti voi abbiate la possibilità di ess
 <p style="margin-top:20px">Riceveremo direttamente la vostra conferma. Per ulteriori informazioni potete contattarci al numero <b>+39 320 618 3730</b>.</p>
 
 </div>
+
+<!-- VIAGGIO DI NOZZE -->
+<div id="viaggio" class="page">
+
+<h2>Viaggio di Nozze ✈️</h2>
+
+<div class="viaggio">
+
+Cari amici e parenti,<br>
+la vostra presenza ci rende contenti ❤️<br>
+ma se volete strafare,<br>
+un contributo è gradito per farci viaggiare ✈️🌍<br>
+verso le meraviglie del Cairo e delle piramidi 🏜️🛕
+
+</div>
+
+<div class="iban">
+
+<b>IBAN</b><br>
+IT45 L036 6901 6009 4635 3179 187
+
+<br><br>
+
+<b>Causale</b><br>
+Viaggio di Nozze Bruno&Christina
+
+</div>
+
 </div>
 
 </div>
