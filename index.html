@@ -236,22 +236,6 @@ animation:fadeText 1.2s ease;
 animation:pulseCountdown 2s infinite;
 }
 
-@keyframes petals{
-0%{transform:translateY(-20px) rotate(0deg);opacity:0}
-10%{opacity:.6}
-100%{transform:translateY(120px) rotate(360deg);opacity:0}
-}
-
-#home.active::after{
-content:"🌸 🌸 🌸";
-position:absolute;
-left:50%;
-top:0;
-transform:translateX(-50%);
-font-size:22px;
-animation:petals 6s linear infinite;
-pointer-events:none;
-}
 
 </style>
 </head>
@@ -321,7 +305,7 @@ San Bartolomeo al Mare
 Per questo giorno speciale vogliamo che tutti voi abbiate la possibilità di esserci e sappiamo benissimo lo sforzo del viaggio che farete. Di conseguenza con nostro più grande piacere vogliamo farvi un piccolo regalo e mettere a vostra disposizione gli appartamenti del <b>Residence Borgodella Rovere</b>, proprio adiacente al luogo del matrimonio. Vi chiediamo la gentilezza di farci avere conferma appena siete sicuri così da poter organizzare al meglio questo giorno speciale.
 </p>
 
-<form action="https://formsubmit.co/bejleri.bruno@gmail.com" method="POST">
+<form action="https://formsubmit.co/bejleri.bruno@gmail.com" method="POST" onsubmit="showThanks()">
 
 <input type="text" name="nome" placeholder="Nome" required>
 <input type="text" name="cognome" placeholder="Cognome" required>
@@ -405,6 +389,12 @@ if(!e.target.closest('.menu')){
 menu.style.display='none';
 }
 });
+
+function showThanks(){
+setTimeout(function(){
+alert("Grazie! La vostra conferma è stata inviata con successo. Non vediamo l'ora di festeggiare insieme a voi! 💍");
+},300);
+}
 
 </script>
 
