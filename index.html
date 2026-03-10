@@ -220,25 +220,20 @@ margin:auto;
 }
 
 
-#viaggio{
-position:relative;
-overflow:hidden;
+@keyframes fadeText{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.text p{
+animation:fadeText 1.2s ease;
 }
 
-#viaggio::before{
-content:"";
-position:absolute;
-inset:0;
-background-image:url('piramidi.png');
-background-size:cover;
-background-position:center;
-opacity:0.08;
-pointer-events:none;
+@keyframes pulseCountdown{
+0%{transform:scale(1)}
+50%{transform:scale(1.05)}
+100%{transform:scale(1)}
 }
 
-#viaggio > *{
-position:relative;
-z-index:1;
+.countdown{
+animation:pulseCountdown 2s infinite;
 }
 
 </style>
@@ -384,6 +379,15 @@ document.getElementById("countdown").innerText="È il grande giorno!";
 
 setInterval(updateCountdown,1000);
 updateCountdown();
+
+// chiude il menu cliccando fuori
+document.addEventListener('click',function(e){
+const menu=document.getElementById('dropdown');
+const button=document.querySelector('.menu button');
+if(!e.target.closest('.menu')){
+menu.style.display='none';
+}
+});
 
 </script>
 
