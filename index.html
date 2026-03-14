@@ -257,7 +257,7 @@ animation:pulseCountdown 2s infinite;
 
 
 
-/* Intro busta invito migliorata */
+/* Intro busta invito stile verticale telefono */
 #introEnvelope{
 position:fixed;
 inset:0;
@@ -270,62 +270,70 @@ z-index:9999;
 
 .envelope{
 position:relative;
-width:340px;
-height:220px;
-background:linear-gradient(145deg,#f8f5ef,#e9e2d6);
-border-radius:6px;
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
+width:360px;
+height:640px;
+background:#f6f1e7;
+border-radius:8px;
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
 overflow:hidden;
 }
 
-/* lembi busta */
+/* texture carta panna leggermente ruvida */
+.envelope{
+background:
+radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+linear-gradient(180deg,#f8f3ea,#efe6d8);
+background-size:4px 4px,100% 100%;
+}
+
+/* divisione verticale della busta */
 .envelope:before,
 .envelope:after{
 content:"";
 position:absolute;
-width:100%;
-height:100%;
-background:linear-gradient(145deg,#eee6d9,#ddd2c2);
-transition:transform 1s ease;
-}
-
-/* lembo superiore */
-.envelope:before{
 top:0;
-clip-path:polygon(0 0,100% 0,50% 65%);
-box-shadow:inset 0 -5px 10px rgba(0,0,0,0.05);
+width:50%;
+height:100%;
+background:inherit;
+transition:transform 1.2s ease;
 }
 
-/* lembo inferiore */
+.envelope:before{
+left:0;
+border-right:1px solid rgba(0,0,0,0.08);
+}
+
 .envelope:after{
-bottom:0;
-clip-path:polygon(0 100%,100% 100%,50% 35%);
+right:0;
+border-left:1px solid rgba(0,0,0,0.08);
 }
 
-.envelope.open:before{transform:translateY(-130%) rotate(-12deg)}
-.envelope.open:after{transform:translateY(130%) rotate(12deg)}
+/* apertura laterale */
+.envelope.open:before{transform:translateX(-110%) rotate(-8deg)}
+.envelope.open:after{transform:translateX(110%) rotate(8deg)}
 
-/* sigillo ceralacca */
+/* sigillo ceralacca sopra la busta */
 .seal{
 position:absolute;
 left:50%;
-top:50%;
+top:45%;
 transform:translate(-50%,-50%);
-background:radial-gradient(circle at 30% 30%,#b03a3a,#7a1f1f);
-color:white;
-padding:16px 18px;
+background:radial-gradient(circle at 30% 30%,#b43b3b,#7a1f1f);
+color:#fbeeee;
+padding:18px 22px;
 border-radius:50%;
-font-size:13px;
-font-weight:bold;
+font-size:14px;
+font-weight:700;
 letter-spacing:1px;
 cursor:pointer;
-box-shadow:0 6px 14px rgba(0,0,0,0.35);
-transition:transform .3s ease, box-shadow .3s ease;
+box-shadow:0 10px 20px rgba(0,0,0,0.35), inset 0 3px 6px rgba(255,255,255,0.2);
+text-transform:uppercase;
 }
 
-.seal:hover{
-transform:translate(-50%,-50%) scale(1.08);
-box-shadow:0 8px 18px rgba(0,0,0,0.4);
+/* effetto scritta stampata nella cera */
+.seal{
+font-family:'Playfair Display',serif;
+text-shadow:0 1px 0 rgba(0,0,0,0.4);
 }
 
 #introEnvelope.hidden{
@@ -339,9 +347,13 @@ to{opacity:0;visibility:hidden}
 /* stile IBAN leggibile */
 .iban-number{
 font-family:"Courier New", monospace;
-font-size:15px;
+font-size:12px;
 letter-spacing:2px;
 font-weight:600;
+}
+
+.causale-text{
+font-size:12px;
 }
 }
 
@@ -460,7 +472,7 @@ un contributo è gradito per farci viaggiare ✈️🛕
 <br><br>
 
 <b>Causale</b><br>
-Viaggio di Nozze Bruno&Christina
+<span class="causale-text">Viaggio di Nozze Bruno&Christina</span>
 
 </div>
 
