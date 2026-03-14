@@ -168,6 +168,22 @@ button.submit:hover{
 background:#6b8775;
 }
 
+.calendar-btn{
+display:inline-block;
+margin-top:18px;
+background:#7c9a85;
+color:white;
+padding:10px 18px;
+border-radius:20px;
+text-decoration:none;
+font-size:16px;
+transition:.3s;
+}
+
+.calendar-btn:hover{
+background:#6b8775;
+}
+
 iframe{
 width:100%;
 height:420px;
@@ -185,12 +201,16 @@ margin-top:20px;
 
 .iban{
 margin-top:30px;
-font-size:20px;
+font-size:22px;
 background:white;
-padding:20px;
+padding:22px;
 border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 text-align:center;
+font-family: 'Courier New', Courier, monospace;
+letter-spacing:1.5px;
+line-height:1.8;
+color:#1f2a23;
 }
 
 @media(max-width:800px){
@@ -236,39 +256,6 @@ animation:fadeText 1.2s ease;
 animation:pulseCountdown 2s infinite;
 }
 
-.calendar-btn{
-display:inline-block;
-margin-top:18px;
-background:#7c9a85;
-color:white;
-padding:10px 18px;
-border-radius:20px;
-text-decoration:none;
-font-size:16px;
-transition:.3s;
-}
-
-.calendar-btn:hover{
-background:#6b8775;
-}
-.decor{
-margin:8px 0 20px 0;
-font-size:20px;
-color:#8aa892;
-letter-spacing:4px;
-text-align:left;
-}
-body::before{
-content:"";
-position:fixed;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.6), rgba(255,255,255,0) 60%);
-pointer-events:none;
-z-index:-1;
-}  
 
 </style>
 </head>
@@ -294,8 +281,7 @@ z-index:-1;
 <div id="home" class="page active welcome">
 
 <div class="text">
-<h2>💍 Benvenuti</h2>
-<div class="decor">— ✦ —</div>
+<h2>Benvenuti</h2>
 
 <p>
 Con immensa gioia vi invitiamo a celebrare con noi uno dei momenti più importanti della nostra vita.
@@ -306,6 +292,7 @@ Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra s
 </p>
 
 <div class="countdown" id="countdown"></div>
+
 <a class="calendar-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Bruno+%26+Christina&dates=20260926T140000Z/20260926T210000Z&details=Matrimonio+di+Bruno+e+Christina&location=La+Femme+San+Bartolomeo+al+Mare" target="_blank">📅 Aggiungi al calendario</a>
 
 </div>
@@ -318,7 +305,7 @@ Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra s
 
 <!-- LOCATION -->
 <div id="indirizzo" class="page">
-<h2>📍Dove si svolgerà</h2>
+<h2>Dove si svolgerà</h2>
 
 <p>
 Location: <b>La Femme</b><br>
@@ -332,8 +319,7 @@ San Bartolomeo al Mare
 
 <!-- RSVP -->
 <div id="rsvp" class="page">
-<h2>✉️ Conferma la tua presenza</h2>
-<div class="decor">— ✦ —</div>
+<h2>Conferma la tua presenza</h2>
 
 <p>Compila il modulo qui sotto per confermare la tua partecipazione.</p>
 
@@ -354,15 +340,13 @@ Per questo giorno speciale vogliamo che tutti voi abbiate la possibilità di ess
 </form>
 
 <p style="margin-top:20px">Riceveremo direttamente la vostra conferma. Per ulteriori informazioni potete contattarci al numero <b>+39 320 618 3730</b>.</p>
-<p><b>La vostra presenza renderà questo giorno ancora più indimenticabile ❤️</b></p>
 
 </div>
 
 <!-- VIAGGIO DI NOZZE -->
 <div id="viaggio" class="page">
 
-<h2>✈️ Viaggio di Nozze</h2>
-<div class="decor">— ✦ —</div>
+<h2>Viaggio di Nozze ✈️</h2>
 
 <div class="viaggio">
 
