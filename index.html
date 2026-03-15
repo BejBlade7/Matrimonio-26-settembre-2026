@@ -201,7 +201,7 @@ margin-top:20px;
 
 .iban{
 margin-top:30px;
-font-size:10px;
+font-size:20px;
 background:white;
 padding:20px;
 border-radius:10px;
@@ -256,126 +256,10 @@ animation:pulseCountdown 2s infinite;
 }
 
 
-
-/* Intro busta invito stile verticale telefono */
-#introEnvelope{
-position:fixed;
-inset:0;
-background:#eef3ed;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-}
-
-/* contenitore busta verticale stile telefono */
-.envelope{
-position:relative;
-width:360px;
-height:640px;
-border-radius:10px;
-box-shadow:0 20px 40px rgba(0,0,0,0.25);
-overflow:hidden;
-cursor:pointer;
-}
-
-
-
-/* le due metà della busta (stessa immagine divisa) */
-.flap{
-position:absolute;
-top:0;
-width:50%;
-height:100%;
-background-image:url('busta.jpg');
-background-size:200% 100%;
-background-repeat:no-repeat;
-transition:transform 1.2s ease;
-}
-
-.flap.left{
-left:0;
-background-position:left center;
-}
-
-.flap.right{
-right:0;
-background-position:right center;
-}
-
-/* lato sinistro */
-.envelope.open .flap.left{
-transform:translateX(-110%) rotate(-8deg);
-}
-
-/* lato destro */
-.envelope.open .flap.right{
-transform:translateX(110%) rotate(8deg);
-}
-
-/* animazione apertura */
-.envelope.open::before{
-transform:translateX(-110%) rotate(-8deg);
-}
-
-.envelope.open::after{
-transform:translateX(110%) rotate(8deg);
-}
-
-/* immagine della busta */
-.envelope img{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-top:0;
-left:0;
-}
-
-
-
-.envelope.open{
-animation:openEnvelope 1s forwards;
-}
-
-@keyframes openEnvelope{
-0%{transform:scale(1)}
-100%{transform:scale(1.8);opacity:0}
-}
-
-#introEnvelope.hidden{
-opacity:0;
-visibility:hidden;
-transition:opacity 0.8s ease;
-}
-
-/* stile IBAN leggibile */
-.iban-number{
-font-family:"Courier New", monospace;
-font-size:12px;
-letter-spacing:2px;
-font-weight:600;
-}
-
-.causale-text{
-font-size:12px;
-}
-}
-
 </style>
 </head>
 
 <body>
-
-
-    <div class="flap right"></div>
-  </div>
-</div>
-  <div class="flap right"></div>
-</div>
-  </div>
-</div>
-
 
 <header>
 <div class="title">Bruno & Christina</div>
@@ -475,12 +359,12 @@ un contributo è gradito per farci viaggiare ✈️🛕
 <div class="iban">
 
 <b>IBAN</b><br>
-<span class="iban-number">IT45 L036 6901 6009 4635 3179 187</span>
+IT45 L036 6901 6009 4635 3179 187
 
 <br><br>
 
 <b>Causale</b><br>
-<span class="causale-text">Viaggio di Nozze Bruno&Christina</span>
+Viaggio di Nozze Bruno&Christina
 
 </div>
 
@@ -531,11 +415,6 @@ function showThanks(){
 setTimeout(function(){
 alert("Grazie! La vostra conferma è stata inviata con successo. Non vediamo l'ora di festeggiare insieme a voi! 💍");
 },300);
-}
-
-
-,1100);
-},900);
 }
 
 </script>
