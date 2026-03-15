@@ -273,10 +273,45 @@ z-index:9999;
 position:relative;
 width:360px;
 height:640px;
-overflow:hidden;
 border-radius:10px;
 box-shadow:0 20px 40px rgba(0,0,0,0.25);
-background:#ddd;
+overflow:hidden;
+cursor:pointer;
+}
+
+/* le due metà della busta (stessa immagine divisa) */
+.envelope::before,
+.envelope::after{
+content:"";
+position:absolute;
+top:0;
+width:50%;
+height:100%;
+background-image:url('busta.jpg');
+background-size:200% 100%;
+background-repeat:no-repeat;
+transition:transform 1.2s ease;
+}
+
+/* lato sinistro */
+.envelope::before{
+left:0;
+background-position:left center;
+}
+
+/* lato destro */
+.envelope::after{
+right:0;
+background-position:right center;
+}
+
+/* animazione apertura */
+.envelope.open::before{
+transform:translateX(-110%) rotate(-8deg);
+}
+
+.envelope.open::after{
+transform:translateX(110%) rotate(8deg);
 }
 
 /* immagine della busta */
@@ -325,10 +360,7 @@ font-size:12px;
 <body>
 
 <div id="introEnvelope">
-  <div class="envelope" id="envelope">
-    <img src="busta.jpg" alt="Invito matrimonio">
-    
-  </div>
+  <div class="envelope" id="envelope" onclick="openInvite()"></div>
   </div>
 </div>
 
@@ -498,6 +530,7 @@ env.classList.add('open');
 
 setTimeout(()=>{
 intro.classList.add('hidden');
+},1100);
 },900);
 }
 
