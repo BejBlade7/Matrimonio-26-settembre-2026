@@ -280,23 +280,20 @@ cursor:pointer;
 }
 
 /* le due metà della busta (stessa immagine divisa) */
-.envelope::before,
-.envelope::after{
-content:"";
-position:absolute;
-top:0;
-width:50%;
-height:100%;
-background-image:url('busta.jpg');
-background-size:200% 100%;
-background-repeat:no-repeat;
-transition:transform 1.2s ease;
+.flap{
+position:abs.envelope.open .flap.right{
+transform:translateX(110%) rotate(8deg);
+}left center;
+}
+
+.flap.right{
+right:0;
+background-position:right center;
 }
 
 /* lato sinistro */
-.envelope::before{
-left:0;
-background-position:left center;
+.envelope.open .flap.left{
+transform:translateX(-110%) rotate(-8deg);
 }
 
 /* lato destro */
@@ -360,7 +357,9 @@ font-size:12px;
 <body>
 
 <div id="introEnvelope">
-  <div class="envelope" id="envelope" onclick="openInvite()"></div>
+  <div class="envelope" id="envelope" onclick="openInvite()">
+  <div class="flap left"></div>
+  <div class="flap
   </div>
 </div>
 
