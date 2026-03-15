@@ -279,11 +279,52 @@ overflow:hidden;
 cursor:pointer;
 }
 
+/* due metà della busta */
+.flap{
+position:absolute;
+top:0;
+width:50%;
+height:100%;
+background-image:url('busta.jpg');
+background-size:200% 100%;
+background-repeat:no-repeat;
+transition:transform 1s ease;
+}
+
+.flap.left{
+left:0;
+background-position:left center;
+}
+
+.flap.right{
+right:0;
+background-position:right center;
+}
+
+/* animazione apertura */
+.envelope.open .flap.left{
+transform:translateX(-120%);
+}
+
+.envelope.open .flap.right{
+transform:translateX(120%);
+}
+
 /* le due metà della busta (stessa immagine divisa) */
 .flap{
-position:abs.envelope.open .flap.right{
-transform:translateX(110%) rotate(8deg);
-}left center;
+position:absolute;
+top:0;
+width:50%;
+height:100%;
+background-image:url('busta.jpg');
+background-size:200% 100%;
+background-repeat:no-repeat;
+transition:transform 1.2s ease;
+}
+
+.flap.left{
+left:0;
+background-position:left center;
 }
 
 .flap.right{
@@ -297,9 +338,8 @@ transform:translateX(-110%) rotate(-8deg);
 }
 
 /* lato destro */
-.envelope::after{
-right:0;
-background-position:right center;
+.envelope.open .flap.right{
+transform:translateX(110%) rotate(8deg);
 }
 
 /* animazione apertura */
@@ -357,9 +397,14 @@ font-size:12px;
 <body>
 
 <div id="introEnvelope">
-  <div class="envelope" id="envelope" onclick="openInvite()">
-  <div class="flap left"></div>
-  <div class="flap
+  <div id="introEnvelope">
+  <div class="envelope" id="envelope">
+    <div class="flap left"></div>
+    <div class="flap right"></div>
+  </div>
+</div>
+  <div class="flap right"></div>
+</div>
   </div>
 </div>
 
@@ -527,9 +572,18 @@ const intro=document.getElementById('introEnvelope');
 
 env.classList.add('open');
 
-setTimeout(()=>{
-intro.classList.add('hidden');
-},1100);
+setTimeout(function(){
+intro.style.display='none';
+},1000);
+}
+
+// click sulla busta
+window.addEventListener('DOMContentLoaded',function(){
+const env=document.getElementById('envelope');
+if(env){
+  env.addEventListener('click',openInvite);
+}
+});,1100);
 },900);
 }
 
