@@ -136,6 +136,7 @@ margin-top:20px;
 font-weight:500;
 font-size:22px;
 color:#6f8f79;
+animation:pulseCountdown 2s infinite;
 }
 
 form{
@@ -213,36 +214,11 @@ color:#2f3e34;
 }
 
 @media(max-width:800px){
-
-header{
-padding:15px 20px;
-}
-
-.title{
-font-size:22px;
-}
-
-.welcome{
-flex-direction:column;
-text-align:center;
-}
-
-.text{
-font-size:19px;
-}
-
-.photo img{
-max-width:420px;
-margin:auto;
-}
-
-}
-
-
-@keyframes fadeText{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-.text p{
-animation:fadeText 1.2s ease;
+header{padding:15px 20px;}
+.title{font-size:22px;}
+.welcome{flex-direction:column;text-align:center;}
+.text{font-size:19px;}
+.photo img{max-width:420px;margin:auto;}
 }
 
 @keyframes pulseCountdown{
@@ -251,11 +227,6 @@ animation:fadeText 1.2s ease;
 100%{transform:scale(1)}
 }
 
-.countdown{
-animation:pulseCountdown 2s infinite;
-}
-
-
 </style>
 </head>
 
@@ -263,116 +234,94 @@ animation:pulseCountdown 2s infinite;
 
 <header>
 <div class="title">Bruno & Christina</div>
-<div style="display:flex;gap:10px;justify-content:center;padding:10px 0;background:#eef3ed;flex-wrap:wrap;">
-<button onclick="scrollToSection('home')">💍 Benvenuti</button>
-<button onclick="scrollToSection('indirizzo')">📍 Indirizzo</button>
-<button onclick="scrollToSection('rsvp')">✉️ Conferma</button>
-<button onclick="scrollToSection('viaggio')">🏜️ Viaggio</button>
+<div class="menu">
+<button onclick="toggleMenu()">Menu</button>
+<div class="dropdown" id="dropdown">
+<a href="#" onclick="showPage('home')">Benvenuti</a>
+<a href="#" onclick="showPage('indirizzo')">Indirizzo</a>
+<a href="#" onclick="showPage('rsvp')">Conferma la tua presenza</a>
+<a href="#" onclick="showPage('viaggio')">Viaggio di Nozze</a>
+</div>
 </div>
 </header>
 
 <div class="container">
 
 <!-- HOME -->
-<div id="home" class="welcome">
-
+<div id="home" class="page active welcome">
 <div class="text">
 <h2>💍Benvenuti</h2>
-
 <p>
 Con immensa gioia vi invitiamo a celebrare con noi uno dei momenti più importanti della nostra vita.
 Il <b>26 settembre 2026</b> alle ore <b>16:00</b> ci uniremo in matrimonio circondati dalle persone che amiamo.
-
 Sarà una giornata fatta di emozioni, sorrisi, buon cibo e momenti indimenticabili.
 Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra storia.
 </p>
-
-<div class="countdown" id="countdown" style="display:block;"></div>
-
+<div class="countdown" id="countdown"></div>
 <a class="calendar-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Bruno+%26+Christina&dates=20260926T140000Z/20260926T210000Z&details=Matrimonio+di+Bruno+e+Christina&location=La+Femme+San+Bartolomeo+al+Mare" target="_blank">📅 Aggiungi al calendario</a>
-
 </div>
-
 <div class="photo">
 <img src="foto-proposta.jpg" alt="Bruno e Christina">
 </div>
-
 </div>
 
 <!-- LOCATION -->
-<div id="indirizzo">
+<div id="indirizzo" class="page">
 <h2>📍Dove si svolgerà</h2>
-
 <p>
 Location: <b>La Femme</b><br>
 Via Cesare Battisti 58<br>
 San Bartolomeo al Mare
 </p>
-
 <iframe src="https://maps.google.com/maps?q=La%20Femme%20San%20Bartolomeo%20al%20Mare&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
-
 </div>
 
 <!-- RSVP -->
-<div id="rsvp">
+<div id="rsvp" class="page">
 <h2>✉️Conferma la tua presenza</h2>
-
 <p>Compila il modulo qui sotto per confermare la tua partecipazione.</p>
-
 <p>
 Per questo giorno speciale vogliamo che tutti voi abbiate la possibilità di esserci e sappiamo benissimo lo sforzo del viaggio che farete. Di conseguenza con nostro più grande piacere vogliamo farvi un piccolo regalo e mettere a vostra disposizione gli appartamenti del <b>Residence Borgodella Rovere</b>, proprio adiacente al luogo del matrimonio. Vi chiediamo la gentilezza di farci avere conferma appena siete sicuri così da poter organizzare al meglio questo giorno speciale.
 </p>
-
 <form action="https://formsubmit.co/bejleri.bruno@gmail.com" method="POST" onsubmit="showThanks()">
-
 <input type="text" name="nome" placeholder="Nome" required>
 <input type="text" name="cognome" placeholder="Cognome" required>
 <input type="number" name="persone" placeholder="Numero di persone" required>
-
 <textarea name="allergie" placeholder="Allergie / Intolleranze (facoltativo)"></textarea>
-
 <button class="submit" type="submit">Invia conferma</button>
-
 </form>
-
 <p style="margin-top:20px">Riceveremo direttamente la vostra conferma. Per ulteriori informazioni potete contattarci al numero <b>+39 320 618 3730</b>.</p>
-
 </div>
 
 <!-- VIAGGIO DI NOZZE -->
-<div id="viaggio">
-
+<div id="viaggio" class="page">
 <h2>🏜️Viaggio di Nozze ✈️</h2>
-
 <div class="viaggio">
-
 Cari amici e parenti,<br>
 la vostra presenza ci rende contenti ❤️<br>
 ma se volete strafare,<br>
 un contributo è gradito per farci viaggiare ✈️🛕
-
 </div>
-
 <div class="iban">
-
 <b>IBAN</b><br>
 IT45 L036 6901 6009 4635 3179 187
-
 <br><br>
-
 <b>Causale</b><br>
 Viaggio di Nozze Bruno&Christina
-
 </div>
-
 </div>
 
 </div>
 
 <script>
+function toggleMenu(){
+var menu=document.getElementById("dropdown");
+menu.style.display=menu.style.display==="block"?"none":"block";
+}
 
-
-
+function showPage(page){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(page).classList.add("active");
 document.getElementById("dropdown").style.display="none";
 }
 
@@ -382,7 +331,6 @@ function updateCountdown(){
 const now=new Date();
 const diff=weddingDate-now;
 const days=Math.floor(diff/(1000*60*60*24));
-
 if(days>0){
 document.getElementById("countdown").innerText="Mancano "+days+" giorni al nostro sì";
 }else{
@@ -393,21 +341,18 @@ document.getElementById("countdown").innerText="È il grande giorno!";
 setInterval(updateCountdown,1000);
 updateCountdown();
 
-
-
-function scrollToSection(id){
-const el=document.getElementById(id);
-if(el){
-el.scrollIntoView({behavior:'smooth'});
+document.addEventListener('click',function(e){
+const menu=document.getElementById('dropdown');
+if(!e.target.closest('.menu')){
+menu.style.display='none';
 }
-}
+});
 
 function showThanks(){
 setTimeout(function(){
 alert("Grazie! La vostra conferma è stata inviata con successo. Non vediamo l'ora di festeggiare insieme a voi! 💍");
 },300);
 }
-
 </script>
 
 </body>
