@@ -263,21 +263,12 @@ animation:pulseCountdown 2s infinite;
 
 <header>
 <div class="title">Bruno & Christina</div>
-<div class="menu">
-<button onclick="toggleMenu()">Menu</button>
-<div class="dropdown" id="dropdown">
-<a href="#" onclick="showPage('home')">Benvenuti</a>
-<a href="#" onclick="showPage('indirizzo')">Indirizzo</a>
-<a href="#" onclick="showPage('rsvp')">Conferma la tua presenza</a>
-<a href="#" onclick="showPage('viaggio')">Viaggio di Nozze</a>
-</div>
-</div>
 </header>
 
 <div class="container">
 
 <!-- HOME -->
-<div id="home" class="page active welcome">
+<div id="home" class="welcome">
 
 <div class="text">
 <h2>💍Benvenuti</h2>
@@ -303,7 +294,7 @@ Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra s
 </div>
 
 <!-- LOCATION -->
-<div id="indirizzo" class="page">
+<div id="indirizzo">
 <h2>📍Dove si svolgerà</h2>
 
 <p>
@@ -317,7 +308,7 @@ San Bartolomeo al Mare
 </div>
 
 <!-- RSVP -->
-<div id="rsvp" class="page">
+<div id="rsvp">
 <h2>✉️Conferma la tua presenza</h2>
 
 <p>Compila il modulo qui sotto per confermare la tua partecipazione.</p>
@@ -343,7 +334,7 @@ Per questo giorno speciale vogliamo che tutti voi abbiate la possibilità di ess
 </div>
 
 <!-- VIAGGIO DI NOZZE -->
-<div id="viaggio" class="page">
+<div id="viaggio">
 
 <h2>🏜️Viaggio di Nozze ✈️</h2>
 
@@ -374,14 +365,8 @@ Viaggio di Nozze Bruno&Christina
 
 <script>
 
-function toggleMenu(){
-var menu=document.getElementById("dropdown");
-menu.style.display=menu.style.display==="block"?"none":"block";
-}
 
-function showPage(page){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById(page).classList.add("active");
+
 document.getElementById("dropdown").style.display="none";
 }
 
@@ -402,14 +387,7 @@ document.getElementById("countdown").innerText="È il grande giorno!";
 setInterval(updateCountdown,1000);
 updateCountdown();
 
-// chiude il menu cliccando fuori
-document.addEventListener('click',function(e){
-const menu=document.getElementById('dropdown');
-const button=document.querySelector('.menu button');
-if(!e.target.closest('.menu')){
-menu.style.display='none';
-}
-});
+
 
 function showThanks(){
 setTimeout(function(){
