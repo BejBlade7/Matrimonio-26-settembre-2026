@@ -263,6 +263,12 @@ animation:pulseCountdown 2s infinite;
 
 <header>
 <div class="title">Bruno & Christina</div>
+<div style="display:flex;gap:10px;justify-content:center;padding:10px 0;background:#eef3ed;flex-wrap:wrap;">
+<button onclick="scrollToSection('home')">💍 Benvenuti</button>
+<button onclick="scrollToSection('indirizzo')">📍 Indirizzo</button>
+<button onclick="scrollToSection('rsvp')">✉️ Conferma</button>
+<button onclick="scrollToSection('viaggio')">🏜️ Viaggio</button>
+</div>
 </header>
 
 <div class="container">
@@ -281,7 +287,7 @@ Sarà una giornata fatta di emozioni, sorrisi, buon cibo e momenti indimenticabi
 Non vediamo l'ora di condividere con voi questo capitolo speciale della nostra storia.
 </p>
 
-<div class="countdown" id="countdown"></div>
+<div class="countdown" id="countdown" style="display:block;"></div>
 
 <a class="calendar-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio+Bruno+%26+Christina&dates=20260926T140000Z/20260926T210000Z&details=Matrimonio+di+Bruno+e+Christina&location=La+Femme+San+Bartolomeo+al+Mare" target="_blank">📅 Aggiungi al calendario</a>
 
@@ -388,6 +394,13 @@ setInterval(updateCountdown,1000);
 updateCountdown();
 
 
+
+function scrollToSection(id){
+const el=document.getElementById(id);
+if(el){
+el.scrollIntoView({behavior:'smooth'});
+}
+}
 
 function showThanks(){
 setTimeout(function(){
